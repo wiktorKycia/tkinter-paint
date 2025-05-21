@@ -12,6 +12,9 @@ class Canvas(tk.Canvas):
     
     def draw_rectangles(self, event):
         self.create_rectangle((event.x - 2), (event.y - 2), (event.x + 2), (event.y + 2))
+    
+    def export(self, filename="my_drawing.ps"):
+        self.postscript(file=filename, colormode='color')
 
 
 class ShapeMenu(tk.Frame):
@@ -31,6 +34,13 @@ class ShapeMenu(tk.Frame):
             command=controller.draw_rectangles
         )
         rectangles_button.pack()
+        
+        export_button = tk.Button(
+            self,
+            text="Export image",
+            command=lambda: controller.canvas.export()
+        )
+        export_button.pack()
 
         
 class Window(tk.Tk):
