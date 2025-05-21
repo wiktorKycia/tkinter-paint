@@ -23,12 +23,14 @@ class ShapeMenu(tk.Frame):
             text="Circles",
             command=controller.draw_circles
         )
+        circles_button.pack()
         
         rectangles_button = tk.Button(
             self,
             text="Rectangles",
             command=controller.draw_rectangles
         )
+        rectangles_button.pack()
 
         
 class Window(tk.Tk):
@@ -43,11 +45,11 @@ class Window(tk.Tk):
         
         self.canvas = Canvas(self, self)
         
-    def draw_circles():
-        pass
+    def draw_circles(self):
+        self.canvas.bind("<B1-Motion>", self.canvas.draw_circles)
     
-    def draw_rectangles():
-        pass
+    def draw_rectangles(self):
+        self.canvas.bind("<B1-Motion>", self.canvas.draw_rectangles)
 
 if __name__ == "__main__":
     testObj = Window()
