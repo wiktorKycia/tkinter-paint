@@ -15,4 +15,7 @@ class Window(tk.Tk):
         # configuring the location of the container using grid
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
-        
+
+if __name__ == "__main__":
+    testObj = Window()
+    testObj.mainloop()
