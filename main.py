@@ -4,12 +4,14 @@ from tkinter import ttk
 
 class Canvas(tk.Canvas):
     def __init__(self, parent, controller):
-        tk.Canvas.__init__(self, parent)
+        tk.Canvas.__init__(self, parent, width=600, height=400)
+        
+        
 
 
 class ShapeMenu(tk.Frame):
     def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
+        tk.Frame.__init__(self, parent, width=600, height=100)
         
         circles_button = tk.Button(
             self,
@@ -31,8 +33,8 @@ class Window(tk.Tk):
         self.wm_title("Drawing Application")
         self.geometry("600x500")
         
-        shape_menu = ShapeMenu(self, self)
-        shape_menu.pack(side="top")
+        self.shape_menu = ShapeMenu(self, self)
+        self.shape_menu.pack(side="top")
         
     def draw_circles():
         pass
