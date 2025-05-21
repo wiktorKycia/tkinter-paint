@@ -5,8 +5,17 @@ from tkinter import ttk
 class Canvas(tk.Canvas):
     def __init__(self, parent, controller):
         tk.Canvas.__init__(self, parent, width=600, height=400)
-        
-        
+        self.create_rectangle((0, 0, 600, 400), fill="#ffffff", width = 0)
+        self.draw_options = {
+            "circles": self.draw_circles,
+            "rectangles": self.draw_rectangles
+        }
+    
+    def draw_circles(self, event):
+        self.create_oval((event.x - 2), (event.y - 2), (event.x + 2), (event.y + 2))
+    
+    def draw_rectangles(self, event):
+        self.create_rectangle((event.x - 2), (event.y - 2), (event.x + 2), (event.y + 2))
 
 
 class ShapeMenu(tk.Frame):
@@ -35,6 +44,8 @@ class Window(tk.Tk):
         
         self.shape_menu = ShapeMenu(self, self)
         self.shape_menu.pack(side="top")
+        
+        self.canvas = Canvas(self, self)
         
     def draw_circles():
         pass
