@@ -44,6 +44,7 @@ class Window(tk.Tk):
         self.shape_menu.pack(side="top")
         
         self.canvas = Canvas(self, self)
+        self.canvas.pack(side="bottom")
         
     def draw_circles(self):
         self.canvas.bind("<B1-Motion>", self.canvas.draw_circles)
