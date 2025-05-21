@@ -67,7 +67,7 @@ cos_line = cv.create_line(cos_list, fill='red')
 
 # Tkinter canvas object can only be saved as a postscipt file
 # which is actually a postscript printer language text file
-cv.postscript(file="my_drawing.ps", colormode='color')
+# cv.postscript(file="my_drawing.ps", colormode='color')
 
 # do the PIL image/draw (in memory) drawings
 draw.text((10, 20), str1, black)
