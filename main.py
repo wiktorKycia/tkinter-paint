@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from PIL import Image
 
 
 class Canvas(tk.Canvas):
@@ -15,6 +16,7 @@ class Canvas(tk.Canvas):
     
     def export(self, filename="my_drawing.ps"):
         self.postscript(file=filename, colormode='color')
+        Image.open(filename).save(filename[:-3]+".png")
 
 
 class ShapeMenu(tk.Frame):
